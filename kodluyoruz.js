@@ -1,3 +1,8 @@
+//! KARIŞIK ÇALIŞMA SAYFASI
+
+
+//İndexleriyle film isimlerini listeleme
+
 /* const filmList = (list) =>{
     list.forEach((series,index) =>{
         console.log(`${index+1}.${series}`)
@@ -7,18 +12,17 @@
 }
 filmList(["twd","tw","lc","tsa"]) */
 
- let baslik = document.querySelector('#baslik');
 
- //* MOUSE EVENTİ 
- 
-/*baslik.addEventListener('mouseover', domClick)
+ //MOUSE EVENTİ 
+ /*let baslik = document.querySelector('#baslik');
+baslik.addEventListener('mouseover', domClick)
 
 
 function domClick(){
         console.log(this.style.color == "blue" ? this.style.color = "black" : this.style.color = "blue")
 } */
 
-//* KLAVYE EVENTİ
+//KLAVYE EVENTİ
 
 /* baslik.addEventListener("copy",cuttingFunction);
 
@@ -43,3 +47,18 @@ button.addEventListener('click',function(){
         console.log('buton');
         })
  */
+        let counter = 0;
+        let counterDOM = document.querySelector('#counter');
+        let increaseDOM= document.querySelector('#increase');
+        let decreaseDOM= document.querySelector('#decrease');
+
+        counterDOM.innerHTML = counter
+        increaseDOM.addEventListener('click', clickEvent)
+        decreaseDOM.addEventListener('click', clickEvent)
+        function clickEvent(){
+            console.log(this.id)
+            this.id == 'increase' 
+            ?   counterDOM.innerHTML = counter+=1
+            :   counterDOM.innerHTML = counter-=1;
+        }
+        
