@@ -1,6 +1,5 @@
 //! KARIŞIK ÇALIŞMA SAYFASI
 
-
 //İndexleriyle film isimlerini listeleme
 
 /* const filmList = (list) =>{
@@ -12,9 +11,8 @@
 }
 filmList(["twd","tw","lc","tsa"]) */
 
-
- //MOUSE EVENTİ 
- /*let baslik = document.querySelector('#baslik');
+//MOUSE EVENTİ
+/*let baslik = document.querySelector('#baslik');
 baslik.addEventListener('mouseover', domClick)
 
 
@@ -24,13 +22,15 @@ function domClick(){
 
 //KLAVYE EVENTİ
 
-/* baslik.addEventListener("copy",cuttingFunction);
+/* 
+baslik.addEventListener("copy",cuttingFunction);
 
 function cuttingFunction(event){
   console.log("etkinlik tipi: " , event.type)
   }  */
 
-/*   const selectBox = document.querySelector('#selectColor');
+/*
+const selectBox = document.querySelector('#selectColor');
 const button = document.querySelector('#button');
 const form = document.querySelector('.inputText');  
 const cerceve = document.querySelector('.container');
@@ -47,7 +47,10 @@ button.addEventListener('click',function(){
         console.log('buton');
         })
  */
-        let counter = 0;
+
+//DOM EVENT + LOCALSTORAGE
+
+/*   let counter = Number(localStorage.getItem('counter')) || 0;
         let counterDOM = document.querySelector('#counter');
         let increaseDOM= document.querySelector('#increase');
         let decreaseDOM= document.querySelector('#decrease');
@@ -60,5 +63,54 @@ button.addEventListener('click',function(){
             this.id == 'increase' 
             ?   counterDOM.innerHTML = counter+=1
             :   counterDOM.innerHTML = counter-=1;
-        }
-        
+            localStorage.setItem('counter', counter)
+            
+        } */
+ 
+
+// LOCALSTORAGE
+/* 
+const form = document.querySelector('form');
+const ul = document.querySelector('ul');
+const button = document.querySelector('#btn');
+const input = document.getElementById('item');
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+
+localStorage.setItem('items', JSON.stringify(itemsArray));
+const data = JSON.parse(localStorage.getItem('items'));
+
+const liMaker = (text) => {
+  const li = document.createElement('li');
+  li.textContent = text;
+  ul.appendChild(li);
+}
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  itemsArray.push(input.value);
+  localStorage.setItem('items', JSON.stringify(itemsArray));
+  liMaker(input.value);
+  
+});
+
+data.forEach(item => {
+  liMaker(item);
+});
+
+button.addEventListener('click', function () {
+  localStorage.clear();
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
+  itemsArray = [];
+}); */
+
+//JSON.stringify JSON.parse
+/* 
+var movies = ["Sezer", "Limanlar","İzmir"];
+
+localStorage.setItem("mySelf", JSON.stringify(movies));
+let kitap = JSON.parse(localStorage.getItem("mySelf"));
+console.log(kitap[2]) */
+
