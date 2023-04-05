@@ -114,3 +114,14 @@ localStorage.setItem("mySelf", JSON.stringify(movies));
 let kitap = JSON.parse(localStorage.getItem("mySelf"));
 console.log(kitap[2]) */
 
+//FORM İŞLEMLERİ VE PREVENTDEFAULT
+
+let formDOM = document.querySelector("#userForm");
+let inputDOM = document.querySelector("#score");
+formDOM.addEventListener("submit", formSubmit)
+
+ function formSubmit(e){
+    e.preventDefault()  //İşlemin default özelliğini kısıtlar
+    console.log(inputDOM.value)
+    
+ }
