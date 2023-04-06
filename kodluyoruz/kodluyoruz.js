@@ -114,9 +114,9 @@ localStorage.setItem("mySelf", JSON.stringify(movies));
 let kitap = JSON.parse(localStorage.getItem("mySelf"));
 console.log(kitap[2]) */
 
-//FORM İŞLEMLERİ VE PREVENTDEFAULT
+//FORM İŞLEMLERİ VE PREVENTDEFAULT KULLANIMI
 
-let formDOM = document.querySelector("#userForm");
+/* let formDOM = document.querySelector("#userForm");
 let inputDOM = document.querySelector("#score");
 formDOM.addEventListener("submit", formSubmit)
 
@@ -124,4 +124,32 @@ formDOM.addEventListener("submit", formSubmit)
     e.preventDefault()  //İşlemin default özelliğini kısıtlar
     console.log(inputDOM.value)
     
- }
+ } */
+
+//filter ve map methodu kullanarak sadece evli olanların ismini büyük harf kullanarak forEach ile listeleme
+   const USERS = [
+    {fullName:"A kiŞisi", isMarried: false},
+    {fullName:"b kİşİSi", isMarried: false},
+    {fullName: "C kİşİSİ", isMarried: true},
+    {fullName: "d Kİşİsİ", isMarried: true},
+    
+]
+
+let Married = USERS.filter(item => item.isMarried).map(insan => insan.fullName.toUpperCase())
+Married.forEach(eleman => console.log(eleman))
+
+//Dizi içerisindeki kişilerin map metotu ile ismini yazdır, isminin ilk harfini büyük yapıp yazdır ve isminin sadece ilk harfini büyük yapıp yazdır.
+const USERS2 =["seZer","cerEn","aHmet","mehmEt","sELeN"]
+
+
+
+const usersObject = USERS2.map(user => (
+   {userName: user, shortName: `${user[0].toUpperCase()}`, newName: `${user[0].toUpperCase()}${user.slice(1).toLowerCase()}`})
+)
+console.log("----------------------------")
+usersObject.forEach(listele => console.log(`${listele.userName} - ${listele.shortName} - ${listele.newName}`))
+
+
+
+
+
